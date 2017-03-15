@@ -21,7 +21,7 @@ portal_types = SimpleVocabulary(
         SimpleTerm(value=u'ArquivoBiblioteca', title=_(u'Arquivos Biblioteca')),
         SimpleTerm(value=u'BoaPratica', title=_(u'Boas Práticas')),
     ]
-    
+
 )
 
 class ISearchContentsTile(IPersistentCoverTile):
@@ -166,7 +166,7 @@ class SearchContentsTile(PersistentCoverTile):
             'all_formats': all_formats,
             'all_types': all_types,
         }
-        
+
         return results
 
     def _brain_for_dict(self, brain):
@@ -174,8 +174,8 @@ class SearchContentsTile(PersistentCoverTile):
             Converte uma pagina em dicionario
         '''
         data_object =  {
-            'title': brain.Title,            
-            'url': brain.getURL(),
+            'title': brain.Title,
+            'url': brain.getURL()+'/view',
             'created': brain.created.strftime('%d/%m/%Y'),
         }
         object = brain.getObject()
